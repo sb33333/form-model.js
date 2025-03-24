@@ -15,7 +15,7 @@
 
 ## 사용 예시
 
-<code><pre>
+``` javascript
 var controller = (model, view) => {
     return {
         addData(fieldName, val) {
@@ -34,4 +34,4 @@ var controller = (model, view) => {
         // ...
     }
 }
-</pre></code>
+```
