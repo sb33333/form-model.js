@@ -16,22 +16,27 @@
 ## 사용 예시
 
 ```javascript
-var controller = (model, view) => {
-    return {
-        addData(fieldName, val) {
-            // Preprocess the value if necessary.
-            var _val = preprocess(fieldName, val);
-            model.append(fieldName, _val);
-            // Update the view with the new state.
-            view.updateView(model.state);
-        },
+var state = INITIAL_STATE_FACTORY({
+	// props
+}).build();
+var model = MODEL_FACTORY (state);
 
-        removeData(fieldName, val) {
-            model.remove(fieldName, val);
-            // Update the view with the modified state.
-            view.updateView(model.state);
-        },
-        // ...
-    };
+var controller = (model, view) => {
+	return {
+		addData(fieldName, val) {
+			// Preprocess the value if necessary.
+			var _val = preprocess(fieldName, val);
+			model.append(fieldName, _val);
+			// Update the view with the new state.
+			view.updateView(model.state);
+		},
+
+		removeData(fieldName, val) {
+			model.remove(fieldName, val);
+			// Update the view with the modified state.
+			view.updateView(model.state);
+		},
+		// ...
+	};
 };
 ```
