@@ -39,4 +39,9 @@ var controller = (model, view) => {
 		// ...
 	};
 };
+
+// Handle user interaction when the button is clicked
+someButtonElement.addEventListener("click", function (e) {
+	controller.addData("someField", "someValue");
+});
 ```
