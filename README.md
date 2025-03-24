@@ -15,23 +15,23 @@
 
 ## 사용 예시
 
-``` javascript
+```javascript
 var controller = (model, view) => {
     return {
         addData(fieldName, val) {
-            // do preprocess if needed.
+            // Preprocess the value if necessary.
             var _val = preprocess(fieldName, val);
-            model.append(fieldName, val);
-            // change view with new state.
-            var updatedState = model.state;
-            view.updateView(updatedState);
+            model.append(fieldName, _val);
+            // Update the view with the new state.
+            view.updateView(model.state);
         },
 
         removeData(fieldName, val) {
             model.remove(fieldName, val);
-            view.updateView(updatedState);
+            // Update the view with the modified state.
+            view.updateView(model.state);
         },
         // ...
-    }
-}
+    };
+};
 ```
